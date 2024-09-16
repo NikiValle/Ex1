@@ -33,6 +33,9 @@ public class Concessionaria{
                     Aggiunta(arrayMarca,arrayModello, arrayTarga, marca, modello, targa, conta);
                     System.out.println("Auto aggiunta con successo");
                     break;
+                case 2:
+                    Visualizza(arrayMarca,arrayModello, arrayTarga,conta);
+                    break;
             }
             conta++;
         }while(running);
@@ -41,5 +44,10 @@ public class Concessionaria{
         arrayMarca[conta] = marca;
         arrayModello[conta] = modello;
         arrayTarga[conta] = targa;
+    }
+    public static void Visualizza(String[] arrayMarca, String[] arrayModello, String[] arrayTarga, int conta){
+        for(int i =0; i<=conta;i++){
+            System.out.println(arrayMarca[i]+","+arrayModello[i]+","+arrayTarga[i]+".");
+        }
     }
 }
