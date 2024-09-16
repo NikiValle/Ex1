@@ -55,6 +55,15 @@ public class Concessionaria {
                         }
                     }
                     break;
+                case 4:
+                    System.out.println("Inserisci marca dell'auto");
+                    marca = in.next();
+                    System.out.println("Inserisci modello dell'auto");
+                    modello = in.next();
+                    linea = (Trova(arrayMarca, arrayModello, arrayPrezzo, marca, modello, conta));
+                    Cancella(arrayMarca, arrayModello, arrayPrezzo, linea, conta);
+                    conta--;
+                    break;
                 case 8:
                     running = false;
             }
@@ -79,6 +88,13 @@ public class Concessionaria {
             }
         }
         return trovato;
+    }
+    public static void Cancella(String[] arrayMarca, String[] arrayModello, double[] arrayPrezzo, int pos, int conta){
+        for(int i=conta;i>pos;i--){
+            arrayMarca[i-1]=arrayMarca[i];
+            arrayModello[i-1]=arrayModello[i];
+            arrayPrezzo[i-1]=arrayPrezzo[i];
+        }
     }
 }
 
