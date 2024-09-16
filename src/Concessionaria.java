@@ -1,17 +1,17 @@
 import java.util.Scanner;
-public class Concessionaria{
-    public static void main(String[]args){
-        boolean running =false;
+public class Concessionaria {
+    public static void main(String[] args) {
+        boolean running = true;
         int opzione;
         Scanner in = new Scanner(System.in);
-        String [] arrayMarca = new String[10000];
-        String [] arrayModello = new String[10000];
-        String [] arrayTarga = new String[10000];
+        String[] arrayMarca = new String[10000];
+        String[] arrayModello = new String[10000];
+        double[] arrayPrezzo = new double[10000];
         String marca;
         String modello;
-        String targa;
+        double prezzo;
         int conta = 0;
-        do{
+        do {
             System.out.println("Seleziona un'opzione:");
             System.out.println("1.Aggiunta di una nuova auto;\n" +
                     "2.Visualizzazione di tutte le auto;\n" +
@@ -22,32 +22,37 @@ public class Concessionaria{
                     "7.Visualizzare tutti i modelli che diesel;\n" +
                     "8.Termina.");
             opzione = in.nextInt();
-            switch(opzione){
+            switch (opzione) {
                 case 1:
                     System.out.println("Fornire marca");
                     marca = in.next();
                     System.out.println("Fornire modello");
                     modello = in.next();
-                    System.out.println("Fornire targa");
-                    targa = in.next();
-                    Aggiunta(arrayMarca,arrayModello, arrayTarga, marca, modello, targa, conta);
+                    System.out.println("Fornire prezzo");
+                    prezzo = in.nextDouble();
+                    Aggiunta(arrayMarca, arrayModello, arrayPrezzo, marca, modello, prezzo, conta);
                     System.out.println("Auto aggiunta con successo");
                     break;
                 case 2:
-                    Visualizza(arrayMarca,arrayModello, arrayTarga,conta);
+                    for(int i=0; i<conta;i++){
+                        System.out.println(Visualizza(arrayMarca, arrayModello, arrayPrezzo, conta, i));
+                    }
                     break;
+                case 8:
+                    running = false;
             }
             conta++;
-        }while(running);
+        } while (running);
     }
-    public static void Aggiunta(String[] arrayMarca, String[] arrayModello, String[] arrayTarga, String marca, String modello, String targa, int conta){
+
+    public static void Aggiunta(String[] arrayMarca, String[] arrayModello, double[] arrayPrezzo, String marca, String modello, double prezzo, int conta) {
         arrayMarca[conta] = marca;
         arrayModello[conta] = modello;
-        arrayTarga[conta] = targa;
+        arrayPrezzo[conta] = prezzo;
     }
-    public static void Visualizza(String[] arrayMarca, String[] arrayModello, String[] arrayTarga, int conta){
-        for(int i =0; i<=conta;i++){
-            System.out.println(arrayMarca[i]+","+arrayModello[i]+","+arrayTarga[i]+".");
-        }
+
+    public static String Visualizza(String[] arrayMarca, String[] arrayModello, double[] arrayTarga, int conta, int i) {
+        return (arrayMarca[i] + "," + arrayModello[i] + "," + arrayTarga[i] + ".");
     }
 }
+
