@@ -4,9 +4,9 @@ public class Concessionaria{
         boolean running =false;
         int opzione;
         Scanner in = new Scanner(System.in);
-        String [] ArrayMarca = new String[10000];
-        String [] ArrayModello = new String[10000];
-        String [] ArrayTarga = new String[10000];
+        String [] arrayMarca = new String[10000];
+        String [] arrayModello = new String[10000];
+        String [] arrayTarga = new String[10000];
         String marca;
         String modello;
         String targa;
@@ -30,7 +30,7 @@ public class Concessionaria{
                     modello = in.next();
                     System.out.println("Fornire targa");
                     targa = in.next();
-                    Aggiunta(marca, modello, targa);
+                    Aggiunta(arrayMarca,arrayModello, arrayTarga, marca, modello, targa, conta);
                     System.out.println("Auto aggiunta con successo");
                     break;
             }
