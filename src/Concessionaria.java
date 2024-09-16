@@ -11,6 +11,7 @@ public class Concessionaria {
         String modello;
         double prezzo;
         int conta = 0;
+        int linea;
         do {
             System.out.println("Seleziona un'opzione:");
             System.out.println("1.Aggiunta di una nuova auto;\n" +
@@ -38,6 +39,22 @@ public class Concessionaria {
                         System.out.println(Visualizza(arrayMarca, arrayModello, arrayPrezzo, conta, i));
                     }
                     break;
+                case 3:
+                    System.out.println("Inserisci marca dell'auto");
+                    marca = in.next();
+                    System.out.println("Inserisci modello dell'auto");
+                    modello = in.next();
+                    linea = (Trova(arrayMarca, arrayModello, arrayPrezzo, marca, modello, conta));
+                    if(arrayMarca[0].equalsIgnoreCase(marca)&&arrayModello[0].equalsIgnoreCase(modello))
+                        System.out.println(Visualizza(arrayMarca, arrayModello, arrayPrezzo, conta, 0));
+                    else{
+                        if(linea==0)
+                            System.out.println("Auto non trovata");
+                        else{
+                            System.out.println(Visualizza(arrayMarca, arrayModello, arrayPrezzo, conta, linea));
+                        }
+                    }
+                    break;
                 case 8:
                     running = false;
             }
@@ -51,8 +68,17 @@ public class Concessionaria {
         arrayPrezzo[conta] = prezzo;
     }
 
-    public static String Visualizza(String[] arrayMarca, String[] arrayModello, double[] arrayTarga, int conta, int i) {
-        return (arrayMarca[i] + "," + arrayModello[i] + "," + arrayTarga[i] + ".");
+    public static String Visualizza(String[] arrayMarca, String[] arrayModello, double[] arrayPrezzo, int conta, int i) {
+        return (arrayMarca[i] + "," + arrayModello[i] + "," + arrayPrezzo[i] + ".");
+    }
+    public static int Trova(String[] arrayMarca, String[] arrayModello, double[] arrayTarga, String marca, String modello, int conta){
+        int trovato =0;
+        for(int i=0; i<conta;i++){
+            if(arrayMarca[i].equalsIgnoreCase(marca)&&arrayModello[i].equalsIgnoreCase(modello)){
+                trovato =i;
+            }
+        }
+        return trovato;
     }
 }
 
