@@ -18,6 +18,7 @@ public class Concessionaria {
         int linea;
         String modifica;
         boolean errore;
+        double precedente;
         do {
             System.out.println("Seleziona un'opzione:");
             System.out.println("1.Aggiunta di una nuova auto;\n" +
@@ -68,7 +69,7 @@ public class Concessionaria {
                     modello = in.next();
                     linea = (MetodiConcessionaria.Trova(arrayMarca, arrayModello, arrayPrezzo, marca, modello, conta));
                     MetodiConcessionaria.Cancella(arrayMarca, arrayModello, arrayPrezzo, linea, conta);
-                    conta--;
+                    conta=conta-2;
                     break;
                 case 5:
                     System.out.println("Inserisci marca dell'auto");
@@ -103,7 +104,10 @@ public class Concessionaria {
                     }
                     break;
                 case 6:
-
+                    precedente=0.0;
+                    for(int i=0;i<conta;i++){
+                        System.out.println(MetodiConcessionaria.Visualizza(arrayMarca, arrayModello, arrayPrezzo, conta, MetodiConcessionaria.StampaCrescente(arrayPrezzo, i, precedente)));
+                    }
                 case 8:
                     running = false;
             }

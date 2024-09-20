@@ -32,4 +32,7 @@ public class MetodiConcessionaria {
     public static void ModificaNumero(double[] array, double dato, int linea){
         array[linea]=dato;
     }
+    public static int StampaCrescente(double[] array, int i, double precedente){
+
+    }
 }
