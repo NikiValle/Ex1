@@ -106,7 +106,13 @@ public class Concessionaria {
                 case 6:
                     precedente=0.0;
                     for(int i=0;i<conta;i++){
-                        System.out.println(MetodiConcessionaria.Visualizza(arrayMarca, arrayModello, arrayPrezzo, conta, MetodiConcessionaria.StampaCrescente(arrayPrezzo, i, precedente)));
+                        System.out.println(MetodiConcessionaria.Visualizza(arrayMarca, arrayModello, arrayPrezzo, conta, MetodiConcessionaria.StampaCrescente(arrayPrezzo, i, conta, precedente)));
+                        precedente = MetodiConcessionaria.StampaCrescente(arrayPrezzo, i, conta, precedente);
+                    }
+                    break;
+                case 7:
+                    for(int i=0; i<conta;i++){
+
                     }
                 case 8:
                     running = false;
