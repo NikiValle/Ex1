@@ -122,13 +122,12 @@ public class Concessionaria {
                             System.out.println(MetodiConcessionaria.Visualizza(arrayMarca, arrayModello, arrayPrezzo, conta, MetodiConcessionaria.VisualizzaDiesel(arrayModello, i, conta)));
                         }
                     }
+                    break;
                 case 8:
                     running = false;
             }
             conta++;
         } while (running);
     }
-
-
 }
 
