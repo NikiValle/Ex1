@@ -46,4 +46,19 @@ public class MetodiConcessionaria {
         }
         return min;
     }
+    public static int VisualizzaDiesel(String[]array, int i, int conta){
+            if(array[i].equalsIgnoreCase("diesel")){
+                return i;
+            }
+        return 0;
+    }
+    public static int ContaDiesel(String[]array, int conta){
+        int contatore =0;
+        for(int i =0;i<conta;i++){
+            if(array[i].equalsIgnoreCase("diesel")){
+                contatore++;
+            }
+        }
+        return contatore;
+    }
 }

@@ -19,6 +19,8 @@ public class Concessionaria {
         String modifica;
         boolean errore;
         double precedente;
+        int modelloDiesel =0;
+        int trovati=0;
         do {
             System.out.println("Seleziona un'opzione:");
             System.out.println("1.Aggiunta di una nuova auto;\n" +
@@ -111,8 +113,14 @@ public class Concessionaria {
                     }
                     break;
                 case 7:
-                    for(int i=0; i<conta;i++){
-
+                    trovati=MetodiConcessionaria.ContaDiesel(arrayModello, conta);
+                    if(trovati==0){
+                        System.out.println("Non sono presenti modelli a diesel");
+                    }
+                    else{
+                        for(int i=0; i<trovati;i++){
+                            System.out.println(MetodiConcessionaria.Visualizza(arrayMarca, arrayModello, arrayPrezzo, conta, MetodiConcessionaria.VisualizzaDiesel(arrayModello, i, conta)));
+                        }
                     }
                 case 8:
                     running = false;
